@@ -1,0 +1,119 @@
+#----------------------------------------------------------
+#Name: Austin Jian
+#Class: ICS201-2
+#Assignment 1
+#----------------------------------------------------------
+
+#question 1
+print("Question 1")
+# asks the user to input the price of the item
+price = eval(input("\nEnter the price of the item in cents: "))
+
+#Determines and stores the amount of change, quarters, dimes, and nickels into variables
+change = 100-price
+quarters = change//25
+dime = (change-quarters*25)//10
+nickel = (change-quarters*25-dime*10)//5
+
+#prints out the result
+print ("You bought an item for " + str(price) + " cents and gave me a dollar, so your change is: ")
+print ("%i quarters"%(quarters))
+print("%i dimes"%(dime))
+print ("%i nickels"%(nickel))
+
+#question 2
+print("\nQuestion 2")
+#Asks for user input and calculates subtotal for individual items
+print ("-------------------------------------------")
+name1 = input("\nEnter the name of item 1: ")
+quantity1 = eval(input("Enter the quantity of item 1: "))
+price1 = eval(input("Enter the price of item 1: "))
+total1 = price1 * quantity1
+
+print ("-------------------------------------------")
+name2 = input("\nEnter the name of item 2: ")
+quantity2 = eval(input("Enter the quantity of item 2: "))
+price2 = eval(input("Enter the price of item 2: "))
+total2 = price2 * quantity2
+
+print ("-------------------------------------------")
+name3 = input("\nEnter the name of item 3: ")
+quantity3 = eval(input("Enter the quantity of item 3: "))
+price3 = eval(input("Enter the price of item 3: "))
+total3 = price3 * quantity3
+
+#Calculates subtotal and stores tax value into variables
+grand_total = total1 + total2 + total3
+tax = 0.0625
+#creates a variable that stores strings along with user inputted values in order to easily format output later on
+message1 = f"{quantity1} {name1} at ${price1} each:"
+message2 = f"{quantity2} {name2} at ${price2} each:"
+message3 = f"{quantity3} {name3} at ${price3} each:"
+message4 = "subtotal: "
+message5 = "6.25% sales tax: "
+message6 = "Total: "
+
+#Prints out formatted receipt
+print("\nYour Receipt \n ------------------------------------------------------")
+print(f"{message1:35s}{total1:25.2f}")
+print(f"{message2:35s}{total2:25.2f}")
+print(f"{message3:35s}{total3:25.2f}")
+print(f"{message4:35s}{grand_total:25.2f}")
+print(f"{message5:35s}{grand_total*tax:25.2f}")
+print(f"{message6:35s}{grand_total * tax + grand_total:25.2f}")
+
+#question 3
+#Asks the user to input values
+print ("\nQuestion 3")
+name_1 = input("\nEnter the name of the first assessment: ")
+score_1 = eval(input("Enter the score you received from " + name_1 +": "))
+total_1 = eval(input("Enter the total points possible for " + name_1 + ": "))
+
+name_2 = input("\nEnter the name of the second assessment: ")
+score_2 = eval(input("Enter the score you received from " + name_2 +": "))
+total_2 = eval(input("Enter the total points possible for " + name_2 + ": "))
+
+name_3 = input("\nEnter the name of the third assessment: ")
+score_3 = eval(input("Enter the score you received from " + name_3 +": "))
+total_3 = eval(input("Enter the total points possible for " + name_3 + ": "))
+
+#stores the totals into variables to make future calculations easier
+score_total = score_1+score_2+score_3
+final_total = total_1+total_2+total_3
+
+#creates variable that stores string values along with user inputted values to make formatting output easy later on
+assignment1_message_part1 = f"{name_1}:"
+assignment1_message_part2 = f"{score_1} out of {total_1}"
+
+assignment2_message_part1 = f"{name_2}:"
+assignment2_message_part2 = f"{score_2} out of {total_2}"
+
+assignment3_message_part1 = f"{name_3}:"
+assignment3_message_part2 = f"{score_3} out of {total_3}"
+
+#Prints out the formatted scores and results of the user input
+print (f"\n{assignment1_message_part1:30s}{assignment1_message_part2}")
+print (f"{assignment2_message_part1:30s}{assignment2_message_part2}")
+print (f"{assignment3_message_part1:30s}{assignment3_message_part2}")
+print ("Your total is " + str(score_total) + " out of " + str(final_total) + " or %.2f%%"%(((score_total/final_total)*100)))
+
+
+#question 4
+print ("\nQuestion 4")
+#Asks user to input test, quiz, and homework result
+test1 = int(input("\nEnter your grade for test 1: "))
+test2 = int(input("Enter your grade for test 2: "))
+
+quiz1 = int(input("\nEnter your grades for quiz 1: "))
+quiz2 = int(input("Enter your grades for quiz 2: "))
+quiz3 = int(input("Enter your grades for quiz 3: "))
+
+homework = float(input("\nEnter your grade for homework average: "))
+
+#Calculates and stores the final grade into a variable
+final_grade = (test1+test2)/2 * 0.5 + (quiz1+quiz2+quiz3)/3 * 0.3 + homework*0.2
+
+#prints out test average, quiz average, and final grade
+print("\nTest average: %.2f%%"%((test1+test2)/2))
+print("Quiz average: %.2f%%"%((quiz1+quiz2+quiz3)/3))
+print("Final Grade:  %.2f%%"%(final_grade))
