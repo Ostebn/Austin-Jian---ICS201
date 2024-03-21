@@ -1,0 +1,181 @@
+
+#question 1
+
+print("Question 1\n")
+#Creates variables to keep track of sum and number of values
+sum = 0
+numValues = 0
+
+#asks user to enter first value
+firstNumber = eval(input("Enter a numerical value: "))
+
+#Checks if first value is 0
+if firstNumber!=0:
+  #Increase sum and number of values by appropriate amount
+  sum+= firstNumber
+  numValues += 1
+
+  #Creates loop to continue asking for numerical values
+  while True:
+    #Asks user to input values
+    number = eval(input("Enter a numerical value: "))
+    #Uses if/else statements to determine whether to stop or continue loop
+    if number!=0:
+      #Increases sum and number of values by appropriate amount
+        sum += number
+        numValues += 1
+    elif number == 0:
+      #prints out average
+        print("Average: %.2f"%(sum/numValues))
+        break
+#gives user appropriate error message if first value is 0
+elif firstNumber == 0:
+  print("First number can not be 0")
+
+
+#Question 2
+
+print("\nQuestion 2\n")
+
+#Prints out appropriate column headings
+print("Celsius \t \t Fahrenheit\n")
+
+#Creates variables for celsius to use it like a counter controlled loop variable
+celsius = 0 
+
+#Uses while loop to print out table
+while celsius <=100:
+  fahrenheit = celsius*(9/5) + 32
+  print(f"{celsius:<10}{fahrenheit:>15}") 
+  celsius +=5
+
+#Question 3
+
+print ("\nQuestion 3\n")
+#Creates variables for initial year and tuition fee
+year = 0
+tuition = 10000
+totalTuition = 0
+#Prints out table header
+print ("Year \t Tuition($)")
+print ("-------------------")
+
+#Uses loop to print out the table
+while year<=14:
+  print (f"{year:<3}{10000*1.05**year:>15.2f}")
+  
+  
+  #Creates total tuition variable to print out total tuition later
+  if year>=11 and year<=14:
+    totalTuition += 10000*1.05**year
+  #Creates while loop ending condition
+  year += 1
+print ("******************************************************")
+print (f"*Total tuition cost for the last 4 years is {totalTuition:.2f}")
+print ("******************************************************")
+
+#Question 4
+print ("\nQuestion 4\n")
+
+#Asks user to input student name and score for first 2 students
+numStudents = int(input("Enter the number of students: "))
+student1 = input("Enter student name: ")
+score1 = eval(input("Enter student's score: "))
+student2 = input("Enter student name: ")
+score2 = eval(input("Enter student's score: "))
+
+#makes variables for user inputs so that they can be compared later on
+highest = score1
+secondHighest = score2
+bestStudent = student1
+secondBestStudent = student2
+
+#creates counter-controlled loop
+count = 0
+
+while count<numStudents-2:
+
+  #asks user for input
+  studentName = input("Enter student name: ")
+  studentScore = eval(input("Enter student's score: "))
+  #Uses if statement to determine who has the higher score
+  if studentScore>highest:
+    highest = studentScore
+    bestStudent = studentName
+  elif studentScore<highest and studentScore>secondHighest:
+    secondHighest = studentScore
+    secondBestStudent = studentName
+  count +=1 
+
+#prints out student score
+print("\nTop two students: ")
+print (f"{bestStudent}'s score is {highest}")
+print (f"{secondBestStudent}'s score is {secondHighest}")
+
+#Question 5
+print("\nQuestion 5\n")
+#Creates variable for perimeter sum
+perimeterSum = 0
+
+#Asks user to input first x and y points
+xValue1 = eval(input("enter x-coordinate of the point: "))
+yValue1 = eval(input("Enter y-coordinate of the point: "))
+
+#Notes down starting points so that we can close the shape at the end
+startPointX, startPointY = xValue1, yValue1
+#Creates loop to continue asking user for coordinate points
+while True:
+  #Checks on whether to end or continue the program
+  xValue2 = input("Enter x-coordinate of the point: ")
+  if xValue2 == "":
+    break
+  else:
+    xValue2 = eval(xValue2)
+  yValue2 = eval(input("Enter y-coordinate of the point: "))
+  #Uses distance formula to calculate distance between points
+  distanceFormula = ((xValue2-xValue1)**2 + (yValue2-yValue1)**2)**(1/2)
+  #Adds the distance to the perimeter
+  perimeterSum += distanceFormula
+  #Records the last coordinate points entered
+  xValue1 = xValue2
+  yValue1 = yValue2
+#Adds the final point and starting point distance to close the shape and finish adding perimeter  
+perimeterSum += ((xValue1-startPointX)**2 + (yValue1-startPointY)**2)**(1/2)
+#Prints out perimeter
+print(f"The perimeter of the polygon is {perimeterSum:.1f}")
+
+#Question 6
+print("\nQuestion 6\n")
+
+#Creates variable to keep track of total admission fee
+totalCost = 0
+#Creates loop to continue asking user to input guest age
+while True:
+  #Asks user to input guest age
+  agePrice = input("Enter the age of the guest: ")
+
+  #checks if user input should end or continue program
+  if agePrice == "":
+    break
+  else:
+    agePrice = eval(agePrice)
+
+  #Checks user inputted age and adds the appropriate ticket cost to the     final admission fee
+  if agePrice >=3 and agePrice<=12:
+    totalCost += 14
+  elif agePrice >= 65:
+    totalCost+=18
+  else:
+    totalCost += 23
+
+#prints total
+print(f"The total zoo admission fee for your group is ${totalCost:.2f}")
+
+    
+
+
+  
+  
+  
+
+  
