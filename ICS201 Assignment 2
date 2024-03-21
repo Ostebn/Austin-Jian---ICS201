@@ -1,0 +1,235 @@
+#----------------------------------------------------------
+#Name: Austin Jian
+#Class: ICS201-2
+#Assignment 2
+#----------------------------------------------------------
+
+#question 1
+
+print("Question 1\n")
+#Asks user to input a number between 1-10
+normalNumber = eval(input("Enter a number between 1 and 10: "))
+
+#Uses if/elif/else statements to return and print out the inputted number's respective value in roman numerals. Also gives error message if the input is invalid.
+if normalNumber == 1:
+  print (f"{normalNumber} in Roman numerals is I")
+elif normalNumber == 2:
+  print (f"{normalNumber} in Roman numerals is II")
+elif normalNumber == 3:
+  print (f"{normalNumber} in Roman numerals is III")
+elif normalNumber == 4:
+  print (f"{normalNumber} in Roman numerals is IV")
+elif normalNumber == 5:
+  print (f"{normalNumber} in Roman numerals is V")
+elif normalNumber == 6:
+  print (f"{normalNumber} in Roman numerals is VI")
+elif normalNumber == 7:
+  print (f"{normalNumber} in Roman numerals is VII")
+elif normalNumber == 8:
+  print (f"{normalNumber} in Roman numerals is VIII")
+elif normalNumber == 9:
+  print (f"{normalNumber} in Roman numerals is IX")
+elif normalNumber == 10:
+  print (f"{normalNumber} in Roman numerals is X")
+else:
+  print (f"{normalNumber} is not a valid input")
+
+
+#Question 2
+print("\nQuestion 2\n")
+#Asks user to input the date and stores those values into variables
+#Asks for year as a string because if they type a 2 digit number less than 10, there will still be proper formatting. For example, if the user inputs 02 as the year, output will be month/date/02 instead of month/date/2
+day = int(input("Enter the day in numerical form: "))
+month = int(input("Enter the month in numerical form: "))
+year = input("Enter the last 2 digits of the year: ")
+
+#Uses if/elif/else statements to determine whether or not the date is magical and also prints out the result. Also turns year into int data type because math calculations are involved
+if month*day == int(year):
+  print ("%i/%i/%s is a magical date!"%(month, day, year))
+else: 
+  print ("\n%i/%i/%s is not a magical date!"%(month, day, year))
+
+
+#question 3
+print ("\nQuestion 3\n")
+
+#Asks user to input dimensions of both rectangles and stores the values into variables
+length1 = eval(input("Enter the length of the first rectangle: "))
+width1 = eval(input("Enter the width of the first rectangle: "))
+length2 = eval(input("\nEnter the length of the second rectangle: "))
+width2 = eval(input("Enter the width of the second rectangle: "))
+
+#stores the area of both rectangles into variables so that future calculations will be easier
+area1 = length1*width1
+area2 = length2*width2
+
+#Uses if/elif/else statements to determine which rectangle has the bigger area. Also prints out the results
+if area1>area2:
+  print ("\nRectangle 1 has the greater area")
+elif area2>area1:
+  print("\nRectangle 2 has the greater area")
+else:
+  print("\nRectangle 1 and rectangle 2 have the same area\n")
+
+
+  
+#question 4
+print("\nQuestion 4")
+#Asks user to input their weight and height and stores the values into variables
+height = eval(input("\nEnter the height of the person in inches: "))
+weight = eval(input("Enter the weight of the person in pounds: "))
+
+#Creates the variable bmi to make future code easier to write
+bmi = (weight*703)/(height**2)
+
+#Uses if/elif/else statements to determine and print out whether the user is overweight, underweight, or optimal weight
+if bmi>=18.5 and bmi<=25:
+  print("The person has a bmi of %.2f meaning they have optimal weight"%(bmi))
+elif bmi<18.5:
+   print("The person has a bmi of %.2f meaning they are underweight"%(bmi))
+else:
+  print("\nThe person has a bmi of %.2f meaning they are overweight"%(bmi))
+
+#Question 5
+print("\nQuestion 5")
+
+#Asks user to input time in seconds
+seconds = int(input("\nEnter a number of seconds: "))
+
+#Uses if/elif/else statements to determine and print out the time in the appropriate unit
+if seconds>= 0 and seconds<60:
+  print(f"There are {seconds} seconds in {seconds} seconds")
+elif seconds>=60 and seconds<3600:
+  print(f"There are {seconds//60} minutes in {seconds} seconds")
+elif seconds>=3600 and seconds<86400:
+  print(f"There are {seconds//3600} hours in {seconds} seconds")
+elif seconds>=86400: 
+  print(f"\nThere are {seconds//86400} days in {seconds} seconds")
+else: 
+  print("Please enter a valid amount of seconds")
+
+#Question 6
+print("\nQuestion 6")
+
+#Asks user to enter the number of each coin
+pennyAmount = int(input("\nEnter the number of pennies: "))
+nickelAmount = int(input("Enter the number of nickels: "))
+dimeAmount = int(input("Enter the amount of dimes: "))
+quarterAmount = int(input("Enter the amount of quarters: "))
+
+#Calculates the total amount of change
+changeTotal = pennyAmount*0.01 + nickelAmount*0.05 + dimeAmount*0.1 + quarterAmount*0.25
+
+#Uses if/else/elif statements to tell and print if the user won or not
+if changeTotal == 1:
+  print ("\nCongratulations! You have won the game!")
+elif changeTotal>1:
+  print("\nThe amount entered was more than a dollar!")
+else:
+  print("\nThe amount entered was less than a dollar!")
+
+#question 7
+print("\nQuestion 7\n")
+
+#Asks user to input the date 
+month = int(input("Enter the month in a numerical value(1-12): "))
+year = int(input("Enter the year: "))
+
+#Uses if/elif/else statements to determine and print out the amount of days in the inputted month
+if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
+  print ("There are 31 days in that month")
+elif month == 4 or month == 6 or month == 9 or month == 11:
+  print("There are 30 days in that month")
+elif month == 2:
+  if year%100 == 0 and year%400 == 0:
+    print ("There are 29 days in that month")
+  elif year%100 != 0 and year%4 == 0:
+    print("There are 29 days in that month")
+  else:
+    print("There are 28 days in that month")
+
+#Question 8
+print ("\nQuestion 8\n")
+ 
+#Asks user to input weight and distance
+packageWeight = eval(input("Enter the weight of the package in kilograms: "))
+distance = eval(input("Enter the distance the package should be shipped in miles: "))
+ 
+#Uses if/else/elif statements to determine and print out prices
+if packageWeight>0 and packageWeight<=2 and distance>= 10 and distance<=3000:
+   print("The cost is $%.2f"%((distance/500)*1.1))
+elif packageWeight>2 and packageWeight<=6 and distance>= 10 and distance<=3000:
+   print("The cost is $%.2f"%((distance/500)*2.2))
+elif packageWeight>6 and packageWeight<=10 and distance>= 10 and distance<=3000:
+   print("The cost is $%.2f"%((distance/500)*3.7))
+elif packageWeight>10 and packageWeight<=20 and distance>= 10 and distance<=3000:
+   print("The cost is $%.2f"%((distance/500)*4.8))
+else:
+   print("We only offer shipping for weights more than 0kg and less than 20kg. We also only offer shipping for distances more than 10 miles but less than 3000 miles")
+
+
+#Question 9
+print("\nQuestion 9\n")
+ 
+#Asks user to input the calories and fats
+calories = eval(input("Enter the amount of calories in the food: "))
+fats = eval(input("Enter the amount of fat grams in the food in grams: "))
+totalCalories = calories + fats*9
+#stores fat percentage into variable to make future code easier to write
+fat_calories_percent = ((fats*9)/totalCalories)*100
+ 
+#Uses if/else/elif statements to determine and print out fat percentange and whether the food is high in fats or not
+if totalCalories>= 0 and fats>= 0:
+   if fat_calories_percent<30:
+       print("The total calories of the food is %.2f. The percentage of calories that come from fat is %.2f"%(totalCalories, fat_calories_percent))
+       print ("The food is low in fat")
+   elif fat_calories_percent>=30 and fat_calories_percent<100:
+       print("The total calories of the food is %.2f. The percentage of calories that come from fat is %.2f"%(totalCalories, fat_calories_percent))
+   else:
+       print("The calories or fat grams were invalid inputs")
+       print("The calories from fat can not be more than total calories")
+else:
+   print("Please make sure the inputs for calories and fats are greater than 0")
+
+
+#question 10
+print ("\nQuestion 10\n")
+ 
+#prints out the menu
+print("Geometry calculator\n")
+print("\t1. Calculate the Area of a Circle")
+print("\t2. Calculate the Area of a Rectangle")
+print("\t3. Calculate the Area of a Triangle")
+print("\t4. Quit\n")
+ 
+#Asks user to input their choice
+userChoice = int(input("Enter your choice (1-4): "))
+ 
+#Uses if/else/elif statements to determine and print out the user's desired choice
+if userChoice>=1 and userChoice<=4:
+   if userChoice == 1:
+       radius = eval(input("Enter the radius of the circle: "))
+       if radius >=0:
+           print("The area of the circle is %.2f"%(3.14159*radius*radius))
+       else:
+           print("Do not input negative values for the radius")
+   elif userChoice == 2:
+       length = eval(input("Enter the length of the rectangle: "))
+       width = eval(input("Enter the width of the rectangle: "))
+       if length>=0 and width>=0:
+           print("The area of the rectangle is %.2f"%(length*width))
+       else:
+           print("Do not enter negative values for the length or width")
+   elif userChoice == 3:
+       base = eval(input("Enter the length of the base of the triangle: "))
+       triangleHeight = eval(input("Enter the height of the triangle: "))
+       if base >= 0 and triangleHeight>=0:
+           print("The area of the triangle is %.2f"%(base*triangleHeight*0.5))
+       else:
+           print("Do not enter negative values for the base and height of the triangle")
+   elif userChoice==4:
+       print("Thank you for using the geometry calculator")
+else:
+   print("Please make sure your choice is between 1 and 4")
+ 
+
