@@ -1,0 +1,209 @@
+#----------------------------------
+#Name: Austin Jian
+#Class: ICS201-2
+#Assignment 6 - Drawing Shapes
+#----------------------------------
+
+#Imports the module named shapes in order to use the functions in the other file
+import shapes
+
+#Creates a function to print out menu
+def menu():
+  print ("This program draws the following shapes: ")
+  print ("1. Horizontal line")
+  print ("2. Vertical line")
+  print ("3. Rectangle")
+  print ("4. Left slant right angle triangle")
+  print ("5. Right slant right angle triangle")
+  print ("6. Isosceles triangle")
+
+#Creates variables with values of 0 to keep track of how many times each shape was printed
+horizontal_line_count = 0
+vertical_line_count = 0
+rectangle_count = 0
+left_slant_right_angle_triangle_count = 0
+right_slant_right_angle_triangle_count = 0
+isosceles_triangle_count = 0
+
+#Prints out a welcome message to the user for using the shape generating program
+print ("Welcome to the shape generator!\n")
+#Calls menu function to display what shapes can be printed to the user
+menu ()
+#Creates a flag variable to continue looping
+looping = True
+#Creates an outer loop to continue running the entire program
+while looping:
+  #Creates a loop to continue asking the user for their user selection until they enter a valid input
+  while looping:
+    #Asks user to input their user selection
+    userChoice = int(input("\nEnter user selection(1-6): "))
+    #Checks if user selection is 1
+    if userChoice == 1:
+      #Creates loop to continue asking user for the line's dimension until they enter a valid input
+      while True:
+        #Asks user to enter the length of horizontal line
+        length = int(input("Enter the desired length of the horizontal line(1-20): "))
+        print ()
+        #Checks if the dimension is an invalid input
+        if length <1 or length>20:
+          #Prints out that the input is invalid
+          print ("Invalid input. Dimensions must be in between 1 and 20.")
+          print()
+        #checks if the dimension is a valid input
+        else:
+          print ()
+          #Prints out the horizontal line
+          print ("Here is the horizontal line with a length of %i"%(length))
+          print()
+          shapes.drawHorizontalLine(length)
+          #Adds one to the horizontal line counter to keep track of how many times this shape was printed
+          horizontal_line_count += 1
+          print ()
+          break
+    #Checks if user selection was 2
+    elif userChoice == 2:
+      #Creates a loop to continue asking user for dimensions until the input is valid 
+      while True:
+        #Asks user to input length of line
+        length = int(input("Enter the desired length of the vertical line(1-20): "))
+        print ()
+        #Checks if/else statements to check if input is invalid
+        if length <1 or length>20:
+          #Gives user error message if input is invalid
+          print ("Invalid input. Dimensions must be in between 1 and 20.")
+          print ()
+        else:
+          print ()
+          print ("Here is the vertical line with a length of %i"%(length))
+          print()
+          #Prints out the vertical line
+          shapes.drawVerticalLine(length)
+          #Adds 1 to vertical line counter
+          vertical_line_count += 1
+          break
+    #Checks if user selection is 3
+    elif userChoice == 3:
+      #Creates loop to continue asking for valid dimensions until the input is valid
+      while True:
+        #Asks user to input rectangle dimensions
+        width = int(input("Enter the width of the rectangle: "))
+        height = int(input("Enter the height of the rectangle: "))
+        print ()
+        #Uses if/else statements to check if input is valid
+        if width <1 or width>20 or height<1 or height>20:
+          #Gives user error message
+          print ("Invalid input. Dimensions must be in between 1 and 20.")
+          print ()
+        else:
+          #Prints out the rectangle
+          print ()
+          print ("Here is the rectangle with a width of %i and a height of %i \n"%(width, height))
+          shapes.drawRectangle(width, height)
+          #Adds one to the rectangle counter
+          rectangle_count += 1
+          print ()
+          break
+    #Checks if user selection is 4
+    elif userChoice == 4:
+      #Creates loop to continue asking user for dimensions until they enter a valid input
+      while True:
+        #Asks user to enter the number of rows of the left slanted right angle triangle
+        rows = int(input("Enter the desired number of rows of the left slanted right angle triangle: "))
+        print ()
+        #Uses if/else statements to check if input is valid
+        if rows<1 or rows>20:
+          #Gives user error message if input is invalid
+          print ("Invalid input. Dimensions must be in between 1 and 20.")
+          print ()
+        else:
+          print ()
+          #Prints out the left slanted right angle triangle 
+          print ("Here is the left slanted right angle triangle with %i rows"%(rows))
+          shapes.drawLeftSlantTriangle(rows)
+          #Adds one to the left slant right angle triangle counter
+          left_slant_right_angle_triangle_count += 1
+          print ()
+          break
+    #Checks if user selection is 5
+    elif userChoice == 5:
+      #Creates loop to continue asking user for dimensions until they enter a valid input
+      while True:
+        #Asks user to input number of rows
+        rows = int(input("Enter the desired number of rows of the right slanted right angle triangle: "))
+        print ()
+        #Uses if/else statements to check if input is valid
+        if rows<1 or rows>20:
+          #Gives user error message if input is invalid
+          print ("Invalid input. Dimensions must be in between 1 and 20.")
+          print ()
+        else:
+          print ()
+          #Prints out the right slanted right angle triangle if the input is valid
+          print ("Here is the right slanted right angle triangle with %i rows"%(rows))
+          shapes.drawRightSlantTriangle(rows)
+          #Adds 1 to the right slant right angle triangle counter if input is valid
+          right_slant_right_angle_triangle_count += 1
+          print ()
+          break
+    #Checks is user selection is 6
+    elif userChoice == 6:
+      #Creates a loop to continue asking user for dimensions until they enter a valid input
+      while True:
+        #Asks user to input number of rows in the isosceles triangle
+        rows = int(input("Enter the desired number of rows of the isosceles triangle: "))
+        print ()
+        #Uses if/else statements to see if the input is valid
+        if rows<1 or rows>20:
+          #Gives user error message if input is invalid
+          print ("Invalid input. Dimensions must be in between 1 and 20.")
+          print ()
+        else:
+          #Prints out the isosceles triangle if input is valid
+          print ()
+          print ("Here is the isosceles triangle with %i rows"%(rows))
+          shapes.drawIsoscelesTriangle(rows)
+          #Adds one to the isosceles triangle counter
+          isosceles_triangle_count += 1
+          print ()
+          break
+    #Checks if user menu selection is not in the range of 1 and 6
+    else:
+      #Gives user error message if user selection is incorrect 
+      print ("Invalid input. User choice must be in between 1 and 6.")
+      print ()
+      #continues looping until the user enters a valid menu selection
+      continue
+    #Creates loop to continue asking user if they want to draw again until they enter a valid input
+    while True:
+      #Asks user if they want to draw another shape
+      drawAgain = input("Would you like to draw another shape (y/n)?")
+      print ()
+      #Checks if the input was yes
+      if drawAgain.upper() == "Y":
+        #Prints out menu
+        menu()
+        break
+      #Checks if the input was no
+      elif drawAgain.upper() == "N":
+        #Breaks the outer while loops
+        looping = False
+        #prints out summary of the shapes
+        print ("Here is a summary of the shapes that were drawn: \n")
+        print (f"{'horizontal line':40s} {horizontal_line_count:30}")
+        print (f"{'vertical line':40s} {vertical_line_count:30}")
+        print (f"{'rectangle':40s} {rectangle_count:30}")
+        print (f"{'left slant right angle triangle':40s}{left_slant_right_angle_triangle_count:31}")
+        print (f"{'right slant right angle triangle':40s}{right_slant_right_angle_triangle_count:31}")
+        print (f"{'isosceles triangle':40s} {isosceles_triangle_count:30}")
+        print ()
+        #Wishes goodbye to user
+        print ("Thank you for using the shape generator! Good bye!")
+        #Breaks the draw again loop
+        break
+      #Checks if the user inputted something other than yes or no
+      else:
+        #Gives user error message if their input was invalid
+        print ("Invalid input. Enter Y or N.")
+        print ()
+  
+  
